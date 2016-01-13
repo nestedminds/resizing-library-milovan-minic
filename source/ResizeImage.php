@@ -6,13 +6,33 @@
  * Time: 16:08
  */
 
+namespace source;
+
+use PHPImageWorkshop\ImageWorkshop;
+
+require (__DIR__ . "../vendor/autoload.php");
+require (__DIR__ . "../vendor/sybio/image-workshop/src/PHPImageWorkshop/ImageWorkshop.php");
+
+
+
 class ResizeImage {
+
+    // Image location
+    protected $imagePath = "../images/sample.jpg";
 
     /**
      * Resize to exact width and height. Aspect ratio will not be maintained
+     *
+     * @param $imagePath
      */
-    public function resizeExact()
+    public function resizeExact($imagePath = null)
     {
+
+        $resizedImage = new ImageWorkshop();
+        if(is_null($imagePath)){
+            $imagePath = $this->imagePath;
+        }
+        $resizedImage->initFromPath($imagePath);
 
     }
 
