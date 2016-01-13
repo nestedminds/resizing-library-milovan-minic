@@ -10,29 +10,34 @@ namespace source;
 
 use PHPImageWorkshop\ImageWorkshop;
 
-require (__DIR__ . "../vendor/autoload.php");
-require (__DIR__ . "../vendor/sybio/image-workshop/src/PHPImageWorkshop/ImageWorkshop.php");
-
-
 
 class ResizeImage {
 
     // Image location
-    protected $imagePath = "../images/sample.jpg";
+    protected $image = "../images/sample.jpg";
 
     /**
      * Resize to exact width and height. Aspect ratio will not be maintained
      *
-     * @param $imagePath
+     * @param $image
+     * @param $width
+     * @param $height
      */
-    public function resizeExact($imagePath = null)
+    public function resizeExact($image = null, $width = null, $height = null)
     {
 
-        $resizedImage = new ImageWorkshop();
-        if(is_null($imagePath)){
-            $imagePath = $this->imagePath;
-        }
-        $resizedImage->initFromPath($imagePath);
+        $layer = ImageWorkshop::initFromPath($image);
+
+        $layer->resizeInPixel($width, $height);
+
+        // Saving the result
+        $dirPath = "/../images/resizedExact";
+        $filename = "sample_" . $width . "x" . $height . ".jpg";
+        $createFolders = true;
+        $backgroundColor = 'ffffff'; // transparent, only for PNG (otherwise it will be white if set null)
+        $imageQuality = 95; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
+
+        $layer->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
 
     }
 
