@@ -27,4 +27,5 @@ $image = "../images/sample.jpg";
 
 
 $proba = new ResizeImage();
-$proba->resizeExact($image, 640, 480);
+//$proba->resizeExact($image, 480, 640);
+$proba->resizeCropExact();
