@@ -2,6 +2,8 @@
 
 require ("../vendor/autoload.php");
 
+use \Image\ResizeImage;
+
 
 //$layer = \PHPImageWorkshop\ImageWorkshop::initFromPath('../images/sample.jpg');
 
@@ -24,5 +26,5 @@ $image = "../images/sample.jpg";
 //echo $pinguLayer->getWidth();
 
 
-$proba = new \source\ResizeImage();
+$proba = new ResizeImage();
 $proba->resizeExact($image, 640, 480);

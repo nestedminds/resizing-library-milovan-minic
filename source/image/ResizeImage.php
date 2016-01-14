@@ -6,7 +6,7 @@
  * Time: 16:08
  */
 
-namespace source;
+namespace Image;
 
 use PHPImageWorkshop\ImageWorkshop;
 
@@ -25,15 +25,14 @@ class ResizeImage {
      */
     public function resizeExact($image = null, $width = null, $height = null)
     {
-
         $layer = ImageWorkshop::initFromPath($image);
 
         $layer->resizeInPixel($width, $height);
 
         // Saving the result
-        $dirPath = "/../images/resizedExact";
+        $dirPath = __DIR__."/../../images/resizedExact/";
         $filename = "sample_" . $width . "x" . $height . ".jpg";
-        $createFolders = true;
+        $createFolders = false;
         $backgroundColor = 'ffffff'; // transparent, only for PNG (otherwise it will be white if set null)
         $imageQuality = 95; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
 
