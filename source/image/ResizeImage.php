@@ -35,6 +35,7 @@ class ResizeImage {
 
         // Saving the result
         $dirPath = __DIR__."/../../images/resizedExact/";
+        // TODO: Filename needs to be same as original + the width and height for saving after manipulation
         $filename = "sample_" . $width . "x" . $height . ".jpg";
         $createFolders = true;
         $backgroundColor = 'ffffff'; // transparent, only for PNG (otherwise it will be white if set null)
@@ -49,7 +50,7 @@ class ResizeImage {
      */
     public function resizeAuto()
     {
-
+        // TODO: Clarification of functionality is needed
     }
 
     /**
@@ -80,6 +81,7 @@ class ResizeImage {
 
         // Saving the result
         $dirPath = __DIR__."/../../images/croppedExact/";
+        // TODO: Filename needs to be same as original + the width and height for saving after manipulation
         $filename = "sample_" . $width . "x" . $height . ".jpg";
         $createFolders = true;
         $backgroundColor = 'ffffff'; // transparent, only for PNG (otherwise it will be white if set null)
@@ -116,6 +118,7 @@ class ResizeImage {
 
         // Saving the result
         $dirPath = __DIR__."/../../images/croppedExact/";
+        // TODO: Filename needs to be same as original + the width and height for saving after manipulation
         $filename = "sample_" . $width . "x" . $height . ".jpg";
         $createFolders = true;
         $backgroundColor = 'ffffff'; // transparent, only for PNG (otherwise it will be white if set null)
@@ -150,6 +153,7 @@ class ResizeImage {
 
         // Saving the result
         $dirPath = __DIR__."/../../images/resizedSquare/";
+        // TODO: Filename needs to be same as original + the width and height for saving after manipulation
         $filename = "sample_" . $width . "x" . $height . ".jpg";
         $createFolders = true;
         $backgroundColor = '000000'; // transparent, only for PNG (otherwise it will be white if set null)
