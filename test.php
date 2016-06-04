@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-//use \Lib\Square;
+use \Lib\Square;
 
 
 //$layer = \PHPImageWorkshop\ImageWorkshop::initFromPath('../images/sample.jpg');
@@ -35,4 +35,4 @@ $image = "/images/sample.jpg";
 //$proba->resizeSquare($image);
 
 //$square = new Square($image, 200);
-$square = new \Lib\Square($image, 200);
+$square = new Square($image, 200);
