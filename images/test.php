@@ -1,14 +1,15 @@
 <?php
 
-require ("../vendor/autoload.php");
+require __DIR__ . '/../vendor/autoload.php';
 
-use \Image\ResizeImage;
+//use \Lib\Square;
 
 
 //$layer = \PHPImageWorkshop\ImageWorkshop::initFromPath('../images/sample.jpg');
 
 
-$image = "../images/sample.jpg";
+$image = "/images/sample.jpg";
+//$image = "sample.jpg";
 
 //$pinguLayer = \PHPImageWorkshop\ImageWorkshop::initFromPath($image);
 
@@ -26,7 +27,12 @@ $image = "../images/sample.jpg";
 //echo $pinguLayer->getWidth();
 
 
-$proba = new ResizeImage();
+//$proba = new ResizeImage();
+//$proba->resizeExact($image, 480, 640);
 //$proba->resizeExact($image, 480, 640);
 //$proba->resizeCropExact();
-$proba->resizeSquare();
+//$proba->resizeSquare();
+//$proba->resizeSquare($image);
+
+//$square = new Square($image, 200);
+$square = new \Lib\Square($image, 200);
