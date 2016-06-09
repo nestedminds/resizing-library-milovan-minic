@@ -7,8 +7,10 @@ use \PHPImageWorkshop\ImageWorkshop;
 class Square
 {
     /**
-     * @param string $image
-     * @param int    $widthHeight
+     * @param string    $image
+     * @param int       $widthHeight
+     *
+     * @throws \PHPImageWorkshop\Exception\ImageWorkshopException
      */
     public function __construct($image, $widthHeight)
     {

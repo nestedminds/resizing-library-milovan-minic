@@ -7,9 +7,9 @@ use \PHPImageWorkshop\ImageWorkshop;
 class Exact
 {
     /**
-     * @param $image
-     * @param $width
-     * @param $height
+     * @param string    $image
+     * @param int       $width
+     * @param int       $height
      *
      * @throws \PHPImageWorkshop\Exception\ImageWorkshopException
      */
