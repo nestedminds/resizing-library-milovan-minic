@@ -21,9 +21,6 @@ class Exact
         $name = explode('/', $this->_image);
         $date = new \DateTime();
         $dateTime = date_format($date, 'Y-m-d_H-i-s');
-        var_dump($date);
-
-//        $fileName = 'exact_' . $width . 'x' . $height . '-' . time() . '_' . end($name);
         $fileName = 'exact_' . $width . 'x' . $height . '-' . $dateTime . '_' . end($name);
         $createFolder = true;
         $backgroundColor = null;
