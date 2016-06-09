@@ -6,38 +6,29 @@ use \PHPImageWorkshop\ImageWorkshop;
 
 class Square
 {
-
-    private $_image;
-    private $_widthHeight;
-
     /**
      * @param string $image
-     * @param int $widthHeight
+     * @param int    $widthHeight
      */
     public function __construct($image, $widthHeight)
     {
-        $this->_image = $image;
-        $this->_widthHeight = $widthHeight;
-
-    }
-
-    public function squareTheImage()
-    {
-        $width = $this->_widthHeight;
-        $height = $this->_widthHeight;
-        $saveLocation = '/images/SquareResized';
-        $fileName = 'squared_' . $width . 'x' . $height . '-' . $this->_image;
-        $createLocation = true;
+        $saveLocation = __DIR__ . '/../images/squareResized';
+        $name = end(explode('/', $image));
+        var_dump($name);
+        $date = new \DateTime();
+        $dateTime = date_format($date, 'Y-m-d_H-i-s');
+        $fileName = 'squared_' . $widthHeight . 'x' . $widthHeight . '-' . $dateTime . '_' . $name;
+        $createFolder = true;
         $backgroundColor = null;
         $imageQuality = 95;
 
         // Initialize layer from existing image
-        $layer = ImageWorkshop::initFromString($this->_image);
+        $layer = ImageWorkshop::initFromPath($image);
 
         // Resize picture to be squared
-        $layer->resizeInPixel($width, $height);
+        $layer->resizeInPixel($widthHeight, $widthHeight);
 
         // Save resized image
-        $layer->save($saveLocation, $fileName, $createLocation, $backgroundColor, $imageQuality);
+        $layer->save($saveLocation, $fileName, $createFolder, $backgroundColor, $imageQuality);
     }
 }
