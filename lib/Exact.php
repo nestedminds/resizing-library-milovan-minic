@@ -6,6 +6,13 @@ use \PHPImageWorkshop\ImageWorkshop;
 
 class Exact
 {
+    /**
+     * @param $image
+     * @param $width
+     * @param $height
+     *
+     * @throws \PHPImageWorkshop\Exception\ImageWorkshopException
+     */
     public function __construct($image, $width, $height)
     {
         $saveLocation = __DIR__ . '/../images/exactResized';
