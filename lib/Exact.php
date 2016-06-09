@@ -6,30 +6,24 @@ use \PHPImageWorkshop\ImageWorkshop;
 
 class Exact
 {
-    private $_image;
-    private $_width;
-    private $_height;
-
-
     public function __construct($image, $width, $height)
     {
-        $this->_image = $image;
-        $this->_width = $width;
-        $this->_height = $height;
-
         $saveLocation = __DIR__ . '/../images/exactResized';
-        $name = explode('/', $this->_image);
+        $name = end(explode('/', $image));
         $date = new \DateTime();
         $dateTime = date_format($date, 'Y-m-d_H-i-s');
-        $fileName = 'exact_' . $width . 'x' . $height . '-' . $dateTime . '_' . end($name);
+        $fileName = 'exact_' . $width . 'x' . $height . '-' . $dateTime . '_' . $name;
         $createFolder = true;
         $backgroundColor = null;
         $imageQuality = 95;
 
-        $layer = ImageWorkshop::initFromPath($this->_image);
+        // Initialize layer from existing image
+        $layer = ImageWorkshop::initFromPath($image);
 
+        // Resize picture to be squared
         $layer->resizeInPixel($width, $height);
 
+        // Save resized image
         $layer->save($saveLocation, $fileName, $createFolder, $backgroundColor, $imageQuality);
     }
 }
