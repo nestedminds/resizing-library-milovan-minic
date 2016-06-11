@@ -16,7 +16,7 @@ class Square
     {
         $saveLocation = __DIR__ . '/../images/squareResized';
         $name = end(explode('/', $image));
-        var_dump($name);
+//        var_dump($name);
         $date = new \DateTime();
         $dateTime = date_format($date, 'Y-m-d_H-i-s');
         $fileName = 'squared_' . $widthHeight . 'x' . $widthHeight . '-' . $dateTime . '_' . $name;
@@ -26,6 +26,9 @@ class Square
 
         // Initialize layer from existing image
         $layer = ImageWorkshop::initFromPath($image);
+
+        // Crop layer to have both same dimensions based on shorter edge
+        $layer->cropMaximum();
 
         // Resize picture to be squared
         $layer->resizeInPixel($widthHeight, $widthHeight);
