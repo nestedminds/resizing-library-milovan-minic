@@ -15,4 +15,6 @@ $image = __DIR__ . "/images/sample.jpg";
 
 //$square = new Square($image, 10000);
 
-$croped = new Crop($image, 150, 200);
+//$croped = new Crop($image, 150, 200);
+
+$auto = new Auto($image, 150);
