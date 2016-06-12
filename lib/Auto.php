@@ -6,6 +6,12 @@ use \PHPImageWorkshop\ImageWorkshop;
 
 class Auto
 {
+    /**
+     * @param string    $image
+     * @param int       $largerSideLength
+     *
+     * @throws \PHPImageWorkshop\Exception\ImageWorkshopException
+     */
     public function __construct($image, $largerSideLength)
     {
 
