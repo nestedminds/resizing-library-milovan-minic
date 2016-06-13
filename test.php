@@ -10,11 +10,10 @@ use \Lib\Auto;
 $image = __DIR__ . "/images/sample.jpg";
 
 
-//$exact = new Exact($image, 200, 200);
-//var_dump($exact);
+$exact = new Exact($image, 222, 222);
 
-//$square = new Square($image, 10000);
+$square = new Square($image, 155);
 
-//$croped = new Crop($image, 150, 200);
+$croped = new Crop($image, 155, 222);
 
-$auto = new Auto($image, 150);
+$auto = new Auto($image, 180);
