@@ -18,23 +18,27 @@ class Crop
      */
     public function __construct($image, $xlen, $ylen, $xpos = 0, $ypos = 0, $pointerPosition = 'LB')
     {
-        $saveLocation = __DIR__ . '/../images/cropResized';
-        $name = end(explode('/', $image));
-        $date = new \DateTime();
-        $dateTime = date_format($date, 'Y-m-d_H-i-s');
-        $fileName = 'croped_' . $xlen . 'x' . $ylen . '-' . $dateTime . '_' . $name;
-        $createFolder = true;
-        $backgroundColor = null;
-        $imageQuality = 95;
-
         // Initialize layer from existing image
         $layer = ImageWorkshop::initFromPath($image);
 
         // Crop image based on given dimensions
         $layer->cropInPixel($xlen, $ylen, $xpos, $ypos, $pointerPosition);
 
-        // Save resized image
-        $layer->save($saveLocation, $fileName, $createFolder, $backgroundColor, $imageQuality);
-    }
+        // Get width and height of resized image
+        $width = $layer->getWidth();
+        $height = $layer->getHeight();
 
+        // Make save configuration parameters
+        $saveConfig = new SaveConfig($image, $width, $height, __CLASS__);
+        $config = $saveConfig->getConfiguration();
+
+        // Save resized image
+        $layer->save(
+            $config['saveLocation'],
+            $config['fileName'],
+            $config['createFolder'],
+            $config['backgroundColor'],
+            $config['imageQuality']
+        );
+    }
 }
